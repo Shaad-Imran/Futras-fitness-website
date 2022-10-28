@@ -214,6 +214,64 @@ body {
   font-size: var(--fs-5);
 }
 
+.title-wrapper {
+  position: relative;
+  padding-block: 40px;
+  margin-block-end: 50px;
+  z-index: 1;
+}
+
+.title-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120px;
+  height: 160px;
+  background-image: url("images/title-shape-white.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  z-index: -1;
+}
+
+.card-link {
+  color: var(--spanish-gray);
+  font-size: var(--fs-5);
+  font-weight: var(--fw-600);
+  transition: var(--transition-2);
+}
+
+.card-link .span {
+  display: inline-block;
+  color: var(--hover-color, var(--black-chocolate));
+  transition: var(--transition-2);
+}
+
+.card-meta-list {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.card-meta-item {
+  position: relative;
+  color: var(--orange-web);
+  font-size: var(--fs-6);
+}
+
+.card-meta-item:not(:last-child)::after {
+  position: absolute;
+  content: "";
+  top: 50%;
+  right: -15px;
+  width: 4px;
+  height: 4px;
+  background-color: var(--blue-green-color-wheel);
+  border-radius: 50%;
+}
+
 /* ...Header...  */
 .header {
   position: fixed;
@@ -557,6 +615,41 @@ body {
   margin-block: 30px 10px;
 }
 
+/* ..Course..  */
+.course-card .card-banner {
+  margin-block-end: 30px;
+}
+
+.course-card .card-content {
+  position: relative;
+  padding: 20px;
+  padding-block-end: 15px;
+}
+
+.course-card .card-price {
+  background-color: var(--blue-green-color-wheel);
+  color: var(--white);
+  font-weight: var(--fw-700);
+  width: 60px;
+  height: 60px;
+  display: grid;
+  place-items: center;
+  margin-inline: auto;
+  margin-block-start: -80px;
+  margin-block-end: 20px;
+  border: 2px solid var(--white);
+  border-radius: 50%;
+}
+
+.course-card .card-title {
+  margin-block: 10px 20px;
+  transition: var(--transition-1);
+}
+
+.course-card .card-title:is(:hover, :focus) {
+  color: var(--orange-web);
+}
+
 /* ... Responsiveness ...  */
 
 @media (min-width: 575px) {
@@ -642,6 +735,10 @@ body {
   .about-h3 {
     --fs-2: 3rem;
   }
+
+  .course .grid-list {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 @media (min-width: 768px) {
@@ -674,6 +771,22 @@ body {
 
   .about .section-title {
     --fs-2: 5.7rem;
+  }
+
+  .course-card .card-price {
+    width: 80px;
+    height: 80px;
+    font-size: var(--fs-4);
+    margin-block-start: -100px;
+  }
+
+  .course-card .h3 {
+    --fs-4: 2.4rem;
+  }
+
+  .course-card .card-content {
+    padding: 30px;
+    padding-block-end: 25px;
   }
 }
 
