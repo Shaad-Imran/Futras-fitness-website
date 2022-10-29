@@ -650,6 +650,84 @@ body {
   color: var(--orange-web);
 }
 
+/* ...Blog...  */
+.blog {
+  background-color: var(--cultured);
+}
+
+.blog-card {
+  background-color: var(--white);
+  min-height: 420px;
+  padding: 20px;
+  display: grid;
+  align-content: center;
+  transition: var(--transition-2);
+}
+
+.blog-card:is(:hover, :focus-within) {
+  --hover-color: var(--white);
+  background-color: var(--blue-green-color-wheel);
+  color: var(--white);
+}
+
+.blog-card .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+.blog-card .publish-date {
+  background-color: var(--hover-color, var(--blue-green-color-wheel));
+  color: var(--white);
+  font-size: var(--fs-7);
+  font-weight: var(--fw-500);
+  line-height: 1;
+  text-align: center;
+  width: 65px;
+  height: 65px;
+  display: grid;
+  place-content: center;
+  border-radius: var(--radius-2);
+  transition: var(--transition-2);
+}
+
+.blog-card:is(:hover, :focus-within) .publish-date {
+  color: var(--blue-green-color-wheel);
+}
+
+.blog-card .publish-date .span {
+  color: var(--orange-web);
+  font-size: var(--fs-3);
+  font-weight: var(--fw-700);
+  line-height: 1;
+  margin-block-end: 5px;
+}
+
+.blog-card .card-link {
+  font-weight: var(--fw-700);
+  margin-block-end: 10px;
+}
+
+.blog-card:is(:hover, :focus-within) .card-link {
+  color: var(--orange-web);
+}
+
+.blog-card .card-meta-item:not(:last-child)::after {
+  background-color: var(--hover-color, var(--black-chocolate));
+  transition: var(--transition-2);
+}
+
+.blog-card .card-title {
+  color: var(--hover-color);
+  margin-block: 30px 15px;
+  transition: var(--transition-2);
+}
+
+.blog-card .card-text {
+  font-size: var(--fs-5);
+}
+
 /* ... Responsiveness ...  */
 
 @media (min-width: 575px) {
@@ -739,6 +817,10 @@ body {
   .course .grid-list {
     grid-template-columns: 1fr 1fr;
   }
+
+  .blog-card .h3 {
+    --fs-4: 2.4rem;
+  }
 }
 
 @media (min-width: 768px) {
@@ -788,6 +870,10 @@ body {
     padding: 30px;
     padding-block-end: 25px;
   }
+
+  .blog-card {
+    padding: 45px;
+  }
 }
 
 @media (min-width: 992px) {
@@ -804,7 +890,7 @@ body {
     padding: 13px 40px;
   }
 
-  :is(.service) .grid-list {
+  :is(.service, .course, .blog) .grid-list {
     grid-template-columns: repeat(3, 1fr);
   }
 
@@ -880,6 +966,10 @@ body {
   .about-h3 {
     --fs-2: 2.4rem;
   }
+
+  .blog-card {
+    padding: 30px;
+  }
 }
 
 @media (min-width: 1200px) {
@@ -928,5 +1018,14 @@ body {
 
   .about-h3 {
     --fs-2: 3rem;
+  }
+
+  .blog-card {
+    padding: 45px;
+  }
+
+  .blog-card .publish-date {
+    width: 80px;
+    height: 80px;
   }
 }
